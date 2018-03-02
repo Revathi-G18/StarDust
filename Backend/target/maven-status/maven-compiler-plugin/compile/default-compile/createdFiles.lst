@@ -1,0 +1,6 @@
+com\springform\demo\Config\DBConfig.class
+com\springform\demo\Dao\ProductDAOImpl.class
+com\springform\demo\Services\ProductService.class
+com\springform\demo\Services\ProductServiceImpl.class
+com\springform\demo\Dao\ProductDAO.class
+com\springform\demo\Model\Product.class

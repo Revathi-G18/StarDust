@@ -6,8 +6,25 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
+<%@include file="Header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<style type="text/css">
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<title>Product Display</title>
 </head>
 <body>
 <h2>Product Information</h2>
@@ -40,8 +57,8 @@
 <form action="addpro" method="post">
 	<table align="center">
 		<tr>
-			<td>Product Name</td>
-			<td><input type="text" id="proname" name="proname" /></td>
+		<td>Product Name</td>
+		<td><input type="text" id="proname" name="proname" /></td>
 		</tr><tr>
 		<td>Product Desc</td>
 		<td><input type="text" id="prodesc" name="prodesc" /></td>
@@ -72,12 +89,13 @@
             
         <table align="center">
 	<tr>
-		<td>product ID</td>
-		<td>product Name</td>
-		<td>product Desc</td>
-		<td>product cost</td>
-		<td>product stock</td>
-		<td>category</td>
+		<th>Product ID</th>
+		<th>Product Name</th>
+		<th>Product Desc</th>
+		<th>Product cost</th>
+		<th>Product stock</th>
+		<th>Category</th>
+		<th>Operation</th>
 	</tr>
 	<c:forEach items="${listProducts}" var="product">
 		<tr>
@@ -87,14 +105,11 @@
 			<td>${product.price}</td>
 			<td>${product.stock}</td>
 			<td>${product.category.categoryName }</td>
-			<td><a
-				href="<c:url value="/updateProduct/${product.productId}"/>">Update</a>
+			<td><a href="<c:url value="/updateProduct/${product.productId}"/>">Update</a>
 				<a href="<c:url value="/deleteProduct/${product.productId}"/>">Delete</a>
 			</td>
 		</tr>
-	</c:forEach>
-	
-</table>      
-      
+	</c:forEach>	
+</table>           
 </body>
 </html>

@@ -53,8 +53,7 @@ public class ProductController {
 
 	@RequestMapping("/add")
 	public String showProduct(Model m) {
-		List<Product> listProducts = productService.getAllProducts();
-		
+		List<Product> listProducts = productService.getAllProducts();		
 		List<Category> listCategories=categoryservice.getCategories();
 		m.addAttribute("listCategories", listCategories);
 		m.addAttribute("listProducts", listProducts);

@@ -12,24 +12,24 @@ import com.springform.demo.Model.Category;
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    private CategoryDAO categoryDao;
+    private CategoryDAO categoryDAO;
 	public boolean addCategory(Category category) {
-		return categoryDao.addCategory(category);
+		return categoryDAO.addCategory(category);
 	}
 
 	public Category getCategory(int categoryId) {
-		return categoryDao.getCategory(categoryId);
+		return categoryDAO.getCategory(categoryId);
 	}
 
 	public boolean deleteCategory(Category category) {
-		return categoryDao.deleteCategory(category);
+		return categoryDAO.deleteCategory(category);
 	}
 
 	public boolean updateCategory(Category category) {
-		return categoryDao.updateCategory(category);
+		return categoryDAO.updateCategory(category);
 	}
 
 	public List<Category> getCategories() {
-		return categoryDao.getCategories();
+		return categoryDAO.getCategories();
 	}
 }

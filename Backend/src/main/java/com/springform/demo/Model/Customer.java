@@ -2,56 +2,61 @@ package com.springform.demo.Model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Customer {
 	@Id
-	private int CustomerId;
-	private String FirstName;
-	private String LastName;
-	private String Email;
-	private String Phone;
-
+	@GeneratedValue
+	private int customerId;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String phone;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Cart cart;
 	@OneToOne(cascade=CascadeType.ALL)
 	private User user;
 
 	@OneToOne(cascade=CascadeType.ALL)
 	private BillingAddress billingadd;
-
+	
 	@OneToOne(cascade=CascadeType.ALL)
 	private ShippingAddress shippingadd;
 	
+	
 	public int getCustomerId() {
-		return CustomerId;
+		return customerId;
 	}
 	public void setCustomerId(int customerId) {
-		CustomerId = customerId;
+		this.customerId = customerId;
 	}
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		this.firstName = firstName;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
 	public User getUser() {
 		return user;
@@ -71,4 +76,12 @@ public class Customer {
 	public void setShippingadd(ShippingAddress shippingadd) {
 		this.shippingadd = shippingadd;
 	}
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	
+	
 	}

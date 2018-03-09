@@ -8,24 +8,25 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 	@Id
-	private String UserName;
-	private String UserPassword;
+	private String username;
+	private String userpassword;
 	private boolean enabled;
 	@OneToOne(mappedBy="user",cascade=CascadeType.ALL)
 	private Authority authority;
 	@OneToOne(mappedBy="user")
 	private Customer customer;
-	public String getUserName() {
-		return UserName;
+	
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getUserPassword() {
-		return UserPassword;
+	public String getUserpassword() {
+		return userpassword;
 	}
-	public void setUserPassword(String userPassword) {
-		UserPassword = userPassword;
+	public void setUserpassword(String userpassword) {
+		this.userpassword = userpassword;
 	}
 	public Authority getAuthority() {
 		return authority;

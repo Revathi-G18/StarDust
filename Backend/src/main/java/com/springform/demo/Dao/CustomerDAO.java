@@ -4,9 +4,9 @@ import com.springform.demo.Model.Customer;
 import com.springform.demo.Model.User;
 
 public interface CustomerDAO {
-	 void registerCustomer(Customer customer);
-	 boolean isEmailValid(String email);
-	 boolean isUsernameValid(String username);
-	 User getUser(String username);
+	 public void registerCustomer(Customer customer);
+	 public boolean isEmailValid(String email);
+	 public boolean isUsernameValid(String username);
+	 public User getUser(String username);
 	
 }

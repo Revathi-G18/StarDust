@@ -2,30 +2,32 @@ package com.springform.demo.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Authority {
 	@Id
-	private int AuthorityId;
-	private String Role;
+	private int authorityId;
+	private String role;
 	@OneToOne
-	private User user;
+	/*@JoinColumn(name="username",unique=true)*/
+	private User user;	
 
 	public int getAuthorityId() {
-		return AuthorityId;
+		return authorityId;
 	}
 
 	public void setAuthorityId(int authorityId) {
-		AuthorityId = authorityId;
+		this.authorityId = authorityId;
 	}
 
 	public String getRole() {
-		return Role;
+		return role;
 	}
 
 	public void setRole(String role) {
-		Role = role;
+		this.role = role;
 	}
 
 	public User getUser() {

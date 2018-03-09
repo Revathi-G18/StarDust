@@ -13,20 +13,26 @@ import com.springform.demo.Model.Product;
 @Service
 public class ProductServiceImpl implements ProductService{
 	@Autowired
-	private ProductDAO productDao;
+	private ProductDAO productDAO;
 		public List<Product> getAllProducts() {
-			return productDao.getAllProducts();
+			return productDAO.getAllProducts();
 		}
 		public boolean addProduct(Product product) {
-			return productDao.addProduct(product);
+			return productDAO.addProduct(product);
 		}
 		public boolean deleteProduct(Product product) {
-			return productDao.deleteProduct(product);
+			return productDAO.deleteProduct(product);
 		}
 		public boolean updateProduct(Product product) {
-			return productDao.updateProduct(product);
+			return productDAO.updateProduct(product);
 		}
 		public Product getProduct(int productId) {
-			return productDao.getProduct(productId);
+			return productDAO.getProduct(productId);
 		}
+		public List<Product> getProductsbasedonCatId(int CategoryId) {
+			
+			return productDAO.getProductsbasedonCatId(CategoryId);
+		}
+		
 }
+

@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product {
@@ -17,12 +20,25 @@ public class Product {
 	private int price;
 	private int stock;
 	private String productDesc;
-	
-	
-	
+
+@Transient
+private MultipartFile img;
+
+	public MultipartFile getImg() {
+	return img;
+}
+
+
+public void setImg(MultipartFile img) {
+	this.img = img;
+}
+
+
 	public Category getCategory() {
 		return category;
 	}
+	
+	
 	public void setCategory(Category category) {
 		this.category = category;
 	}
@@ -64,3 +80,4 @@ public class Product {
 		this.stock = stock;
 	}
 }
+

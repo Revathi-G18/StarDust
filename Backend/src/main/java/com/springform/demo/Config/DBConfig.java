@@ -12,11 +12,14 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.springform.demo.Dao.ProductDAOImpl;
+
 import com.springform.demo.Model.Authority;
 import com.springform.demo.Model.BillingAddress;
+import com.springform.demo.Model.Cart;
+import com.springform.demo.Model.CartItem;
 import com.springform.demo.Model.Category;
 import com.springform.demo.Model.Customer;
+import com.springform.demo.Model.CustomerOrder;
 import com.springform.demo.Model.Product;
 import com.springform.demo.Model.ShippingAddress;
 import com.springform.demo.Model.User;
@@ -44,7 +47,7 @@ public class DBConfig {
 	{
 		
 		Properties hibernateProp=new Properties();
-		hibernateProp.setProperty("hibernate.hbm2ddl.auto", "create");
+		hibernateProp.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProp.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
 		LocalSessionFactoryBuilder factoryBuilder=new LocalSessionFactoryBuilder(getH2DataSource());
 		factoryBuilder.addAnnotatedClass(Category.class);
@@ -54,13 +57,17 @@ public class DBConfig {
 		factoryBuilder.addAnnotatedClass(Authority.class);
 		factoryBuilder.addAnnotatedClass(BillingAddress.class);
 		factoryBuilder.addAnnotatedClass(ShippingAddress.class);
+		factoryBuilder.addAnnotatedClass(Cart.class);
+		factoryBuilder.addAnnotatedClass(CartItem.class);
+		factoryBuilder.addAnnotatedClass(CustomerOrder.class);
+		
 		//factoryBuilder.addAnnotatedClass(UserDetail.class);
 		factoryBuilder.addProperties(hibernateProp);
 		System.out.println("Creating SessionFactory Bean");
 		
 		return factoryBuilder.buildSessionFactory();
 	}	
-/*	@Bean(name="categoryDAO")
+	/*@Bean(name="categoryDAO")
 	public CategoryDAO getCategoryDAO()
 	{
 		System.out.println("----DAO Implementation---");

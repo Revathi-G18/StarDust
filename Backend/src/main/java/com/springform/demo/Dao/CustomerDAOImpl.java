@@ -11,12 +11,12 @@ import com.springform.demo.Model.Authority;
 import com.springform.demo.Model.Customer;
 import com.springform.demo.Model.User;
 @Repository
-@Transactional
 public class CustomerDAOImpl implements CustomerDAO {
 	@Autowired
-	private SessionFactory sessionFactory;
+	SessionFactory sessionFactory;
+	@Transactional
 	public void registerCustomer(Customer customer) {
-Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.getCurrentSession();
 		
 		Authority authority=new Authority();
 		authority.setRole("ROLE_USER");
@@ -26,8 +26,7 @@ Session session=sessionFactory.getCurrentSession();
 		customer.getUser().setEnabled(true);
 		
 		session.save(customer);
-		
-	}
+		}
 
 	public boolean isEmailValid(String email) {
 		Session session=sessionFactory.getCurrentSession();
@@ -54,5 +53,4 @@ Session session=sessionFactory.getCurrentSession();
 		User user=(User)session.get(User.class,username);
 		return user;
 	}
-
 }

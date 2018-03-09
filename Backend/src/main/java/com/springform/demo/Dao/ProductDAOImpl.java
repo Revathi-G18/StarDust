@@ -1,8 +1,11 @@
 package com.springform.demo.Dao;
 import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,10 +62,19 @@ public class ProductDAOImpl implements ProductDAO {
 				System.out.println("Exception Arised:"+e);
 				return false;
 			}
+			
+			
 		}
 		public Product getProduct(int productId) {
 			Session session=sessionFactory.openSession();
 			Product product=(Product)session.get(Product.class,productId);
 			return product;
+		}
+		public List<Product> getProductsbasedonCatId(int categoryId) {
+			Session session=sessionFactory.getCurrentSession();
+			//HQL - Hibernate query Language
+			return session.createQuery("from Product p where p.category.categoryId="+":cateId ").setInteger("cateId", categoryId).list() ; 		
+		
+			
 		}
 }

@@ -77,6 +77,7 @@ public class Customer {
 		this.shippingadd = shippingadd;
 	}
 	public Cart getCart() {
+		System.out.println(cart);
 		return cart;
 	}
 	public void setCart(Cart cart) {

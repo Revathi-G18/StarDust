@@ -18,12 +18,14 @@ import com.springform.demo.Model.CustomerOrder;
 public class CartItemDAOImpl implements CartItemDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
+	@Transactional
 	public void saveOrUpdateCartItem(CartItem cartItem) {
 		Session session=sessionFactory.getCurrentSession();
-		session.saveOrUpdate(cartItem);
+		session.update(cartItem);
 		
-	}
 
+	}
+	@Transactional
 	public void removeCartItem(int cartItemId) {
 		Session session=sessionFactory.getCurrentSession();
 	    //select * from cartitem where id=?
@@ -32,14 +34,14 @@ public class CartItemDAOImpl implements CartItemDAO{
 	    session.delete(cartItem);
 		
 	}
-
+	@Transactional
 	public Cart getCart(int cartId) {
 		Session session=sessionFactory.getCurrentSession();
 		Cart cart=(Cart)session.get(Cart.class, cartId);
 		//select records both from parent and child table , fetchType.EAGER
 		return cart;
 	}
-
+	@Transactional
 	public CustomerOrder createOrder(Cart cart) {
 		Session session=sessionFactory.getCurrentSession();
 		CustomerOrder customerOrder=new CustomerOrder();

@@ -42,6 +42,7 @@ public class User {
 		this.enabled = enabled;
 	}
 	public Customer getCustomer() {
+		System.out.println("***"+customer.getFirstName());
 		return customer;
 	}
 	public void setCustomer(Customer customer) {

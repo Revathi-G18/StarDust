@@ -39,6 +39,7 @@ public void setCustomer(Customer customer) {
 	this.customer = customer;
 }
 public List<CartItem> getCartItems() {
+	System.out.println("getCartmethod");
 	return cartItems;
 }
 public void setCartItems(List<CartItem> cartItems) {

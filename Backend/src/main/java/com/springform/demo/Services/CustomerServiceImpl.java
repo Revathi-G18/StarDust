@@ -24,7 +24,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.isUsernameValid(username);
 	}
 
-	public User getUser(String username) {
+	public User getUser(String username) 
+	{
 		return customerDao.getUser(username);
 	}
 }

@@ -12,7 +12,6 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 import com.springform.demo.Model.Authority;
 import com.springform.demo.Model.BillingAddress;
 import com.springform.demo.Model.Cart;
@@ -27,6 +26,7 @@ import com.springform.demo.Model.User;
 @Configuration
 @ComponentScan("com.springform.demo")
 @EnableTransactionManagement
+
 public class DBConfig {
 	@Bean(name="dataSource")
 	public DataSource getH2DataSource()

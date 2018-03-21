@@ -61,23 +61,20 @@
 <form action="<c:url value='/cart/addtocart/${product.productId}'></c:url>">
 <%-- <c:forEach items="${listproduct}" var="product">  --%>
  <div class="col-sm-4">
-<img src='<c:url value='/resourc"src/main/webapp/WEB-INF/jsp/viewProducts.jsp"es/images/${product.productId }.jpg'></c:url>' height="70" width="70" alt="Image Not Available"/>
+<img src="<c:url value="/resources/images/${product.productId}.jpg"/>" width="200" height="200" alt="Image Not Available"/>
 <pre>
 
 <b>Product Name:</b> ${product.productName }<br>
 <b>Product Description:</b>${product.productDesc }<br>
 <b>Price:</b>${product.price }<br>
- <b>Available Quantity:</b>${product.quantity }<br>
+ <b>Available Quantity:</b>${product.stock }<br>
 <b>Category </b>${product.category.categoryName }<br>
 
 <security:authorize access="hasRole('ROLE_USER')">
 <b>Enter Quantity</b><input type="text" name="quantity" value="1">
 <button type="submit"  value='Add To Cart'  class="btn btn-info btn-lg glyphicon" >
-<span class="glyphicon-shopping-cart"></span>Add to Cart 
-</button>
+<span class="glyphicon-shopping-cart"></span>Add to Cart </button>
 </security:authorize>
-
-
 </pre>
 </div>
 </c:forEach>

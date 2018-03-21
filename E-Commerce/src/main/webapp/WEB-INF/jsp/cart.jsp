@@ -16,13 +16,11 @@
 <body>
 <div >
 <div >
-<c:url value='/cart/clearcart/${cart.id}' var="clearcart"></c:url>
+<c:url value='/cart/clearcart/${Cart.id}' var="clearcart"></c:url>
 <a href=${clearcart} class="btn btn-danger pull-left " >
-<span class="glyphicon glypicon-remove-sign"></span>
-Clear Cart
-</a>
+<span class="glyphicon glypicon-remove-sign"></span>Clear Cart</a>
 
-<a href="<c:url value='/cart/checkout/${cart.id }'></c:url>" class="btn btn-success pull-right">
+<a href="<c:url value='/cart/checkout/${Cart.id }'></c:url>" class="btn btn-success pull-right">
 <span class="glyphicon glypicon-shopping-cart"></span> Check Out  </a>
 <table class="table table-striped">
 <thead>
@@ -31,26 +29,25 @@ Clear Cart
 </thead>
 <!-- double grandTotal=0 -->
 <c:set var="grandTotal" value="0"></c:set>
-<c:forEach items="${cart.cartItems }" var="cartItem">
+<c:forEach items="${Cart.cartItems }" var="cartItem">
 <tr>
 <td>${cartItem.product.productName }</td>
-<td>${cartItem.stock }</td>
-<td>${cartItem.price }</td>
+<td>${cartItem.quantity }</td> 
+<td>${cartItem.totalPrice } * ${cartItem.quantity }</td>
 
-<td><a href="<c:url value='/cart/deletecartitem/${cartItem.id }'></c:url>" class="label label-danger pull-left">
+<td><a href="<c:url value='/cart/deletecartitem/${CartItem.id }'></c:url>" class="label label-danger pull-left">
 
 <span class="glyphicon glypicon-remove" ></span>Remove
 </a></td>
 <td></td>
 <!--  grandTotal = cartItem.totalPrice + grandTotal -->
 
-<c:set var="grandTotal" value="${cartItem.totalPrice + grandTotal }"></c:set>
+<c:set var="grandTotal" value="${cartItem.totalPrice * cartItem.quantity }"></c:set>
 </tr>
 </c:forEach>
 </table>
 Total Price : ${grandTotal }
 </div>
-
 </div>
 </body>
 </html>

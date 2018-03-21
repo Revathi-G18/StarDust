@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.springform.demo.Dao.CartItemDAO;
 import com.springform.demo.Model.Cart;
 import com.springform.demo.Model.CartItem;
 import com.springform.demo.Model.CustomerOrder;
@@ -11,23 +12,23 @@ import com.springform.demo.Model.CustomerOrder;
 @Service
 public class CartItemServiceImpl implements CartItemService {
 	@Autowired
-	private CartItemService cartitemservice;
+	private CartItemDAO cartitemDAO;
 	public void saveOrUpdateCartItem(CartItem cartItem) {
-		cartitemservice.saveOrUpdateCartItem(cartItem);
+		cartitemDAO.saveOrUpdateCartItem(cartItem);
 		
 	}
 
 	public void removeCartItem(int cartItemId) {
-		cartitemservice.removeCartItem(cartItemId);
+		cartitemDAO.removeCartItem(cartItemId);
 		
 	}
 
 	public Cart getCart(int cartId) {
-		return cartitemservice.getCart(cartId);
+		return cartitemDAO.getCart(cartId);
 	}
 
 	public CustomerOrder createOrder(Cart cart) {
-		return cartitemservice.createOrder(cart);
+		return cartitemDAO.createOrder(cart);
 	}
 
 }

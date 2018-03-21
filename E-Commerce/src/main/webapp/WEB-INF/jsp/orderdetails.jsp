@@ -3,7 +3,12 @@
 <%@ include file="Header.jsp" %>
 <%@ page isELIgnored="false" %>
 <jsp:useBean id="now" class="java.util.Date" />
-
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -30,7 +35,7 @@
                                     <strong>Shipping Address</strong><br/>
                                     ${order.cart.customer.shippingadd.streetname}
                                 <br/>
-                                    ${order.cart.customer.shippingadd.city}, ${order.cart.customer.shippingadd.State}
+                                    ${order.cart.customer.shippingadd.city}
                                 <br/>
                                    ${order.cart.customer.shippingadd.zipcode}
                                 </address>
@@ -46,7 +51,7 @@
                                     <strong>Billing Address</strong><br/>
                                         ${order.cart.customer.billingadd.streetname}
                                     <br/>
-                                        ${order.cart.customer.billingadd.city}, ${order.cart.customer.billingadd.State}
+                                        ${order.cart.customer.billingadd.city}
                                     <br/>
                                         ${order.cart.customer.billingadd.zipcode}
                                 </address>
@@ -68,13 +73,13 @@
                                 <c:set var="grandTotal" value="0.0"></c:set>
                                 <c:forEach var="cartItem" items="${order.cart.cartItems}">
                                     <tr>
-                            <c:url value="/resources/images/${cartItem.product.id }.png" var="imgUrl"></c:url>
+                            <c:url value="/resources/images/${cartItem.product.productId }.png" var="imgUrl"></c:url>
                                         <td><img src="${imgUrl }">  </td>
-                                        <td class="col-md-9"><em>${cartItem.product.productname}</em></td>
+                                        <td class="col-md-9"><em>${cartItem.product.productName}</em></td>
                                         <td class="col-md-1" style="text-align: center">${cartItem.quantity}</td>
                                         <td class="col-md-1" style="text-align: center">${cartItem.product.price}</td>
-                                        <td class="col-md-1" style="text-align: center">${cartItem.totalPrice}</td>
-                                        <c:set var="grandTotal" value="${grandTotal + cartItem.totalPrice }"></c:set>
+                                        <td class="col-md-1" style="text-align: center">${cartItem.totalPrice * cartItem.quantity }</td>
+                                        <c:set var="grandTotal" value="${cartItem.totalPrice * cartItem.quantity }"></c:set>
                                     </tr>
                                 </c:forEach>
 
@@ -85,7 +90,7 @@
                                         <h4><strong>Grand Total:</strong></h4>
                                     </td>
                                     <td class="text-center text-danger">
-                                        <h4><strong>$ ${order.cart.grandTotal}</strong></h4>
+                                        <h4><strong>$ ${grandTotal}</strong></h4>
                                     </td>
                                 </tr>
 
@@ -102,5 +107,5 @@
             
             </form:form>
         </div>
-
-<%@ include file="Footer.jsp" %> 
+</div>
+</html>

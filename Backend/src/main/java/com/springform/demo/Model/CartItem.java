@@ -10,8 +10,8 @@ public class CartItem {
 	@Id
 	@GeneratedValue
 private int id;
-//private int quantity;
 private double totalPrice;
+private int quantity;
 @ManyToOne
 private Cart cart;
 @ManyToOne
@@ -41,6 +41,10 @@ public Product getProduct() {
 public void setProduct(Product product) {
 	this.product = product;
 }
-
-
+public int getQuantity() {
+	return quantity;
+}
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
+}
 }

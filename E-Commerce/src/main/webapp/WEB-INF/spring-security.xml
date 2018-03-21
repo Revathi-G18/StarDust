@@ -7,7 +7,7 @@
      xmlns:security="http://www.springframework.org/schema/security" 
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xmlns="http://www.springframework.org/schema/beans">     
-     
+      
 <security:http use-expressions="true" auto-config="true">
 <security:csrf disabled="true"/>
 <security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/admin/**"/>

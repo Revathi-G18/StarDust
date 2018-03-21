@@ -33,19 +33,6 @@
        </li>
       </c:forEach>
             
-      <!--   <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li> -->
-        <!-- <li><a href="tshirt">T-Shirts</a></li>
-        <li><a href="mobile covers">Mobile Covers</a></li>
-        <li><a href="mugs">Mugs</a></li>
-        <li><a href="posters">Posters</a></li>
-        <li><a href="backpacks">Backpacks</a></li>
-        <li><a href="coasters">Coasters</a></li> -->
-      </ul>
-      
-      <!-- <ul class="nav navbar-nav navbar-right">
-        <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li><a href="all/registrationform"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>        
-      </ul> -->
       <ul class="nav navbar-nav navbar-right">
       		<c:url value="/cart/getcart" var="cart"></c:url>
 	      	<security:authorize access="hasRole('ROLE_USER')">

@@ -25,6 +25,10 @@ public class PageController {
 		m.addAttribute("categories", listcategory);*/
 		return "Home";
 	}
+	@RequestMapping("/ContactUs")
+	public String Contact(){
+		return "ContactUs";
+	}
 	@RequestMapping("/LandingPage")
 	public String Page(Model m){
 		System.out.println("this method is triggered");

@@ -25,12 +25,12 @@ color: black;
 <body>
 <div class="footer">
 <div class="container">    
-<div class="row-fluid">
+<!-- <div class="row-fluid">
 		<div class="span12">
 			<div class="span2" style="width: 15%;">
 				<ul class="unstyled">
 					<li><h5>GitHub</h5><li>
-					<h6><li><a href="#">About us</a></li>
+					<h6><li><a href="AboutUs">About us</a></li>
 					<li><a href="#">Blog</a></li>
 					<li><a href="#">Contact & support</a></li>
 					<li><a href="#">Enterprise</a></li>
@@ -78,20 +78,27 @@ color: black;
 				</ul>
 			</div>					
 		</div>
-	</div>
+	</div> -->
 	<hr>
 	<div class="row-fluid">
 		<div class="span12">
-			<div class="span8">
-				<h6><a href="#">Terms of Service</a>    
-				<a href="#">Privacy</a>    
-				<a href="#">Security</a></h6>
-			</div>
-			<div class="span4">
+			<div class="span2" style="width: 10%;">
+				<h6><a href="#">Terms of Service</a> </h6></div>
+		    <div class="span2" style="width: 10%;"><h6>
+				<a href="AboutUs">About Us</a>  </h6></div>
+			<div class="span2" style="width: 10%;">	  
+			<h6>	<a href="#">Security</a></h6></div>
+			<div class="span2" style="width: 10%;"><h6>
+				<a href="#">Privacy</a></h6></div>
+			<div class="span2" style="width: 10%;"><h6>
+				<a href="ContactUs">Contact Us</a></h6></div>
+				
+			
+			<div class="span2">
 				<p class="muted pull-right">© 2018 StarDust. All rights reserved</p>
 			</div>
 		</div>
-	</div>
+	   </div>
 </div>
 </div>
 </body>

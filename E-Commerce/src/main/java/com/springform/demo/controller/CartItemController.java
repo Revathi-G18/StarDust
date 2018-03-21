@@ -28,7 +28,7 @@ import com.springform.demo.Services.ProductService;
 @Controller
 public class CartItemController {
 	@Autowired
-	   private CartItemService cartitemService;
+	private CartItemService cartitemService;
 	@Autowired
 	private CustomerService customerservice;
 	@Autowired
@@ -36,29 +36,20 @@ public class CartItemController {
 	org.springframework.security.core.userdetails.User user;
 	
 	@RequestMapping(value="/cart/addtocart/{id}")
-	public String addToCart(@AuthenticationPrincipal Principal principal,@PathVariable int id){
-	Product product=productservice.getProduct(id);
-	
+	public String addToCart(@AuthenticationPrincipal Principal principal,@PathVariable int id,@RequestParam int quantity){
+	Product product=productservice.getProduct(id);	
 	
 	String username=principal.getName();
 	User user=customerservice.getUser(username);
 	Customer customer=user.getCustomer();
-	Cart cart=customer.getCart();
-	CartItem cartItem=new CartItem();
-	//cartItem.setQuantity(quantity);
-	cartItem.setTotalPrice(product.getPrice());
-	cartItem.setCart(cart);
-	cartItem.setProduct(product);
-	cartitemService.saveOrUpdateCartItem(cartItem);//insert cartitem.
-	return "redirect:/cart/getcart";
-	
-	/*Cart cart=customer.getCart();
-	
+	//Cart cart=customer.getCart();
+ 	Cart cart=cartitemService.getCart(1);
+		
 	List<CartItem> cartItems=cart.getCartItems();
-	
+		
 	for(CartItem cartItem:cartItems){
 		if(cartItem.getProduct().getProductId()==id){
-			//cartItem.setQuantity(quantity); //update the quantity
+			cartItem.setQuantity(quantity); //update the quantity
 			cartItem.setTotalPrice(product.getPrice()); //update the totalprice
 			cartitemService.saveOrUpdateCartItem(cartItem); //update cartitem , quantity and totalprice 
 			return "redirect:/cart/getcart";
@@ -67,12 +58,12 @@ public class CartItemController {
 	
 	
 	CartItem cartItem=new CartItem();
-	//cartItem.setQuantity(quantity);
+	cartItem.setQuantity(quantity);
 	cartItem.setTotalPrice(product.getPrice());
 	cartItem.setCart(cart);
 	cartItem.setProduct(product);
 	cartitemService.saveOrUpdateCartItem(cartItem);//insert cartitem.
-	return "redirect:/cart/getcart";*/
+	return "redirect:/cart/getcart";
 	
 }
 	@RequestMapping(value="/cart/getcart")
@@ -80,15 +71,16 @@ public class CartItemController {
 		String username=principal.getName();
 		User user=customerservice.getUser(username);
 		Customer customer=user.getCustomer();
-		Cart cart=customer.getCart();
-		model.addAttribute("cart",cart);
+		//Cart cart=customer.getCart();
+		
+		Cart cart=cartitemService.getCart(1);
+		model.addAttribute("Cart",cart);
 		return "cart";
 	}
 	@RequestMapping(value="/cart/checkout/{cartId}")
 	public String checkout(@PathVariable int cartId,Model model){
 		Cart cart=cartitemService.getCart(cartId);
-		List<CartItem> cartItems=cart.getCartItems();
-		
+		List<CartItem> cartItems=cart.getCartItems();		
 		Customer customer=cart.getCustomer();
 		ShippingAddress shippingAdd=customer.getShippingadd();
 		model.addAttribute("shippingaddress",shippingAdd);

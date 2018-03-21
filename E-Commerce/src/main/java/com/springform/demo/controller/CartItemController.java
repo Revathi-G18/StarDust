@@ -44,6 +44,15 @@ public class CartItemController {
 	User user=customerservice.getUser(username);
 	Customer customer=user.getCustomer();
 	Cart cart=customer.getCart();
+	CartItem cartItem=new CartItem();
+	//cartItem.setQuantity(quantity);
+	cartItem.setTotalPrice(product.getPrice());
+	cartItem.setCart(cart);
+	cartItem.setProduct(product);
+	cartitemService.saveOrUpdateCartItem(cartItem);//insert cartitem.
+	return "redirect:/cart/getcart";
+	
+	/*Cart cart=customer.getCart();
 	
 	List<CartItem> cartItems=cart.getCartItems();
 	
@@ -63,7 +72,7 @@ public class CartItemController {
 	cartItem.setCart(cart);
 	cartItem.setProduct(product);
 	cartitemService.saveOrUpdateCartItem(cartItem);//insert cartitem.
-	return "redirect:/cart/getcart";
+	return "redirect:/cart/getcart";*/
 	
 }
 	@RequestMapping(value="/cart/getcart")

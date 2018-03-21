@@ -20,6 +20,7 @@ public class Product {
 	private int price;
 	private int stock;
 	private String productDesc;
+	private int quantity;
 
 @Transient
 private MultipartFile img;
@@ -79,5 +80,13 @@ public void setImg(MultipartFile img) {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
 }
 

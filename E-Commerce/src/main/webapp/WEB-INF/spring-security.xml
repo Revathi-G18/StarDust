@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans  
 	 http://www.springframework.org/schema/beans/spring-beans.xsd
      http://www.springframework.org/schema/security
      http://www.springframework.org/schema/security/spring-security.xsd" 
-     xmlns:security="http://www.springframework.org/schema/security" 
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xmlns="http://www.springframework.org/schema/beans">     
+     xmlns:security="http://www.springframework.org/schema/security"  
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+     xmlns="http://www.springframework.org/schema/beans">      
       
 <security:http use-expressions="true" auto-config="true">
 <security:csrf disabled="true"/>
-<security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/admin/**"/>
+<security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/admin/**"/> 
 <security:intercept-url pattern="/InsertCategory" access="hasRole('ROLE_ADMIN')" />
 <security:intercept-url pattern="/updateCategory/{categoryId}" access="hasRole('ROLE_ADMIN')" />
 <security:intercept-url pattern="/deleteCategory/{categoryId}" access="hasRole('ROLE_ADMIN')" />

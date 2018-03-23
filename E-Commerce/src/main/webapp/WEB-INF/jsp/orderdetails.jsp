@@ -73,13 +73,14 @@
                                 <c:set var="grandTotal" value="0.0"></c:set>
                                 <c:forEach var="cartItem" items="${order.cart.cartItems}">
                                     <tr>
-                            <c:url value="/resources/images/${cartItem.product.productId }.png" var="imgUrl"></c:url>
+                            <c:url value="/resources/images/${cartItem.product.productId }.jpg" var="imgUrl"></c:url>
                                         <td><img src="${imgUrl }">  </td>
                                         <td class="col-md-9"><em>${cartItem.product.productName}</em></td>
                                         <td class="col-md-1" style="text-align: center">${cartItem.quantity}</td>
                                         <td class="col-md-1" style="text-align: center">${cartItem.product.price}</td>
                                         <td class="col-md-1" style="text-align: center">${cartItem.totalPrice * cartItem.quantity }</td>
-                                        <c:set var="grandTotal" value="${cartItem.totalPrice * cartItem.quantity }"></c:set>
+                                        <c:set var="Total" value="${cartItem.totalPrice * cartItem.quantity }"></c:set>
+                                        <c:set var="grandTotal" value="${Total + grandTotal }"></c:set>
                                     </tr>
                                 </c:forEach>
 
@@ -97,14 +98,9 @@
                                 </tbody>
                             </table>
                             <input type="submit" value="Confirm">
-                        </div>
-
-
-                      
-                    </div>
-             
-            </div>
-            
+                        </div>                      
+                    </div>             
+            </div>            
             </form:form>
         </div>
 </div>

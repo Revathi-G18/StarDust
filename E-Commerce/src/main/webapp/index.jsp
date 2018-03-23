@@ -8,7 +8,5 @@
 </head>
 <body>
   <c:redirect url="/LandingPage"/>
-<%--  <%@include file="WEB-INF/jsp/Home.jsp"%> --%> 
-<%-- <jsp:include page="WEB-INF/jsp/Home.jsp"></jsp:include> --%>
 </body>
 </html>

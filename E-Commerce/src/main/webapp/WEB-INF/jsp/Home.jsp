@@ -57,13 +57,6 @@
     </a>
   </div>
 </div>
-
-
-<%-- <c:url value="/all/getallproducts" var="productsUrl"></c:url>
-<a href="${productsUrl}">Browse all products</a>
-<a href="add">ADD</a>
-<a href="category">Category</a>
-<a href="Product">Product</a> --%>
 <%@include file="Footer.jsp"%>
 </body>
 </html>

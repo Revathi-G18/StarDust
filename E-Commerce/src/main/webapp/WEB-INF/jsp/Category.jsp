@@ -26,8 +26,6 @@ tr:nth-child(even) {
 <title>Category</title>
 </head>
 <body>
-<%-- <%@include file="Header.jsp"%> --%>
-
 <h3 align="center">Category Page</h3>
 <c:url value="/admin/InsertCategory" var="insert"></c:url>
 <form action=${insert} method="post">

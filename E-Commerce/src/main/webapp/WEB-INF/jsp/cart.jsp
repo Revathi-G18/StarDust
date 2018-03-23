@@ -33,20 +33,20 @@
 <tr>
 <td>${cartItem.product.productName }</td>
 <td>${cartItem.quantity }</td> 
-<td>${cartItem.totalPrice } * ${cartItem.quantity }</td>
-
-<td><a href="<c:url value='/cart/deletecartitem/${CartItem.id }'></c:url>" class="label label-danger pull-left">
+<td>${cartItem.totalPrice * cartItem.quantity }</td>
+<c:set var="Total" value="${cartItem.totalPrice * cartItem.quantity }"></c:set>
+<td><a href="<c:url value='/cart/deletecartitem/${cartItem.id }'></c:url>" class="label label-danger pull-left">
 
 <span class="glyphicon glypicon-remove" ></span>Remove
 </a></td>
 <td></td>
 <!--  grandTotal = cartItem.totalPrice + grandTotal -->
 
-<c:set var="grandTotal" value="${cartItem.totalPrice * cartItem.quantity }"></c:set>
+<c:set var="grandTotal" value="${Total + grandTotal }"></c:set>
 </tr>
 </c:forEach>
 </table>
-Total Price : ${grandTotal }
+Total Price : ${ grandTotal}
 </div>
 </div>
 </body>

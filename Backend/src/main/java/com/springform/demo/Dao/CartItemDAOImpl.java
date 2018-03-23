@@ -21,8 +21,7 @@ public class CartItemDAOImpl implements CartItemDAO{
 	@Transactional
 	public void saveOrUpdateCartItem(CartItem cartItem) {
 		Session session=sessionFactory.getCurrentSession();
-		session.saveOrUpdate(cartItem);
-		
+		session.saveOrUpdate(cartItem);		
 
 	}
 	@Transactional

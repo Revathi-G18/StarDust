@@ -24,7 +24,6 @@ import com.springform.demo.Services.ProductService;
 public class ProductController {
 	@Autowired
 	private ProductService productService;
-	
 	@Autowired
 	private CategoryService categoryservice;
 
@@ -40,8 +39,9 @@ public class ProductController {
 	}
 		@RequestMapping("all/viewallproducts")
 		public ModelAndView selectByCategory(@RequestParam String searchCondition,Model model){
-
 		List<Product> listproduct = productService.getProductsbasedonCatId(Integer.parseInt(searchCondition));
+		List<Category> listcategory = categoryservice.getCategories();
+		model.addAttribute("categories", listcategory);
 		model.addAttribute("listproduct", listproduct);
 		return new ModelAndView("viewProducts");
 	}
@@ -58,7 +58,7 @@ public class ProductController {
 		
 		productService.addProduct(product);
 		
-		String imagePath="C:\\Users\\Aravinth\\e-commerce\\E-Commerce\\src\\main\\resources\\images\\";
+		String imagePath="C:\\Users\\Aravinth\\e-commerce\\E-Commerce\\src\\main\\webapp\\resources\\images\\";
 		imagePath=imagePath+String.valueOf(product.getProductId())+".jpg";
 		File image=new File(imagePath);
 		
@@ -117,9 +117,6 @@ public class ProductController {
 	{
 		Product product=productService.getProduct(productId);		
 		List<Product> listProducts=productService.getAllProducts();
-		System.out.println("in product controller-------------");
-		System.out.println(product.getProductName());
-		System.out.println(listProducts.get(0).getProductDesc());
 		m.addAttribute("listProducts",listProducts);
 		m.addAttribute("productInfo",product);
 		return "UpdateProduct";

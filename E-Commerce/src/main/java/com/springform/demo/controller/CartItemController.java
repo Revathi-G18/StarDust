@@ -92,7 +92,15 @@ public class CartItemController {
 			
 		}
 	}
-	
+	@RequestMapping(value="/cart/clearcart/{cartId}")
+    public String clearCart(@PathVariable int cartId){
+		Cart cart=cartitemService.getCart(cartId);
+		List<CartItem> cartItems=cart.getCartItems();
+		for(CartItem cartItem : cartItems){//for(T v:collection)
+			cartitemService.removeCartItem(cartItem.getId());//delete from cartitem where id=3
+		}
+		return "redirect:/cart/getcart";
+    }
 	
 	@RequestMapping(value="/cart/createorder/{cartId}")
 	//from shippingaddressform.jsp to createOrder method
@@ -112,6 +120,12 @@ public class CartItemController {
 		model.addAttribute("order",customerOrder);
 		model.addAttribute("cartId",cartId);
 		return "orderdetails";
+	}
+	
+	@RequestMapping(value="/cart/deletecartitem/{cartItemId}")
+	public String removeCartItem(@PathVariable int cartItemId){
+		cartitemService.removeCartItem(cartItemId);
+		return "redirect:/cart/getcart";
 	}
 	
 	@RequestMapping(value="/cart/confirm/{cartId}")

@@ -37,8 +37,6 @@ public class DBConfig {
 		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
-		
-		System.out.println("---Data Source Created---");
 		return dataSource;
 	}
 	
@@ -60,36 +58,13 @@ public class DBConfig {
 		factoryBuilder.addAnnotatedClass(Cart.class);
 		factoryBuilder.addAnnotatedClass(CartItem.class);
 		factoryBuilder.addAnnotatedClass(CustomerOrder.class);
-		
-		//factoryBuilder.addAnnotatedClass(UserDetail.class);
 		factoryBuilder.addProperties(hibernateProp);
-		System.out.println("Creating SessionFactory Bean");
-		
 		return factoryBuilder.buildSessionFactory();
 	}	
-	/*@Bean(name="categoryDAO")
-	public CategoryDAO getCategoryDAO()
-	{
-		System.out.println("----DAO Implementation---");
-		return new CategoryDAOImpl();
-	}
-	@Bean(name="productDAO")
-	public ProductDAOImpl getProductDAO()
-	{
-		System.out.println("---Product DAO Implementation ---");
-		return new ProductDAOImpl();
-	}
-	@Bean(name="userDAO")
-	public UserDAOImpl UserDAO()
-	{
-		System.out.println("---User DAO Implementation ---");
-		return new UserDAOImpl();
-	}*/
 	
 	@Bean(name="txManager")
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory)
 	{
-		System.out.println("---Transaction Manager----");
 		return new HibernateTransactionManager(sessionFactory);
 	}
 }

@@ -11,32 +11,7 @@
 </head>
 <body>
 <h2>Product Information</h2>
-      <%-- <form:form  action = "addpro" method="POST">
-         <table>
-            <tr>
-               <td><form:label path = "productName">ProductName</form:label></td>
-               <td><form:input path = "productName" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "price">Price</form:label></td>
-               <td><form:input path = "price" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "stock">Stock</form:label></td>
-               <td><form:input path = "stock" /></td>
-            </tr>
-             <tr>
-               <td><form:label path = "productDesc">Product Description</form:label></td>
-               <td><form:input path = "productDesc" /></td>
-            </tr>
-            <tr>
-               <td colspan = "2">
-                  <input type = "submit" value = "Submit"/>
-               </td>
-            </tr>
-            </table>
-            </form:form> --%>
-          <c:url value="/admin/UpdateProduct" var="update"/>  
+       <c:url value="/admin/UpdateProduct" var="update"/>  
       <form action=${update} method="post">
 	<table align="center">
 	<tr>
@@ -56,10 +31,7 @@
 		</tr><tr>
 		<td>Product Stock</td>
 		<td><input type="text" id="stock" name="stock" value="${productInfo.stock}"/></td>
-		</tr>
-		
-		
-				
+		</tr>				
 		<tr>
 			<td colspan="2"><input type="submit" value="SUBMIT" /> <input
 				type="reset" value="RESET" /></td>

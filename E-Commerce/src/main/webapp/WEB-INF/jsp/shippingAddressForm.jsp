@@ -18,7 +18,6 @@
 Enter Shipping Address
 
 <div class="form-group">
-<%-- <form:hidden path="id"/> --%>
 <form:label path="apartmentnumber">Apartment Number</form:label>
 <form:input path="apartmentnumber"  class="form-control"></form:input>
 <form:errors path="apartmentnumber" cssStyle="color:red"></form:errors>
